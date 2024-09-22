@@ -1,31 +1,30 @@
 "use client";
-import { useState } from "react";
+
 import styles from "../page.module.css";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+import { useEffect } from "react";
 import Aos from "aos";
+import dynamic from "next/dynamic";
 import "aos/dist/aos.css";
 
 export default function Footer() {
 
-  const [position, setPosition] = useState([-21.2922, -50.3428]);
+  const DynamicMap = dynamic(() => import('./Map'), { ssr: false });
 
-  const mapOptions = {
-    center: position,
-    zoom: 13,
-    scrollWheelZoom: false,
-    dragging: false,
-    touchZoom: false,
-    doubleClickZoom: false,
-    zoomControl: false,
-    attributionControl: false,
-  };
+  useEffect(() => {
+    // Inicializa o AOS
+    if (typeof window !== "undefined") {
+      Aos.init({
+        duration: 2000,
+        once: true,
+      });
+    }
+  }, []);
 
   return (
     <footer className={styles.footer} id="Contato">
       <section className={styles.footer__front} data-aos="fade-up">
-        <article className={styles.contact} data-aos="fade-right">
-          <form action="">
+        <article className={styles.contact} data-aos="fade-up">
+          <form>
             <div>
               <label htmlFor="name">Nome:</label>
               <input type="text" name="name" id="name" />
@@ -46,19 +45,11 @@ export default function Footer() {
             <button type="submit">Enviar</button>
           </form>
         </article>
-        <article className={styles.local} data-aos="fade-in">
-          <MapContainer
-            {...mapOptions}
-            style={{ height: "400px", width: "100%" }}
-          >
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            />
-          </MapContainer>
+        <article className={styles.local} data-aos="fade-up">
+          <DynamicMap />
         </article>
       </section>
-      <section className={styles.footer__copyright}>
+      <section className={styles.footer__copyright} >
         <p>Copyright &copy; 2024. Todos os direitos reservados.</p>
       </section>
     </footer>

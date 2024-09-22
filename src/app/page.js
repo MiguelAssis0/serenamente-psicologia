@@ -1,35 +1,40 @@
 "use client";
 import { useEffect } from "react";
-
 import styles from "./page.module.css";
 import Carrossel from "./components/Carrosel";
 import Ajuda from "./components/Ajuda";
 import Explicacao from "./components/Explicacao";
-import Aos from "aos";
-import "aos/dist/aos.css"; 
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
-
-export default function FullPage() {
-
+export default function Home() {
+  useEffect(() => {
+    // Inicializa o AOS
+    if (typeof window !== "undefined") {
+      Aos.init({
+        duration: 2000,
+        once: true,
+      });
+    }
+  }, []);
 
   return (
     <>
       <Header />
       <main className={styles.main}>
-        <div className={styles.Home}>
-          <div className={styles.Home__agenda} data-aos="fade-right">
+        <div className={styles.Home} data-aos="fade-up">
+          <div className={styles.Home__agenda}>
             <h2>Agende agora sua consulta!</h2>
             <p>O melhor para sua saúde mental</p>
             <button>Agendar</button>
           </div>
-          <div className={styles.Home__image} data-aos="fade-up"></div>
+          <div className={styles.Home__image}></div>
         </div>
-        <div className={styles.Sobre} data-aos="fade-up" id="Sobre">
-          <div className={styles.Sobre__image} data-aos="fade-up"></div>
-          <div className={styles.Sobre__text} data-aos="fade-up">
+        <div className={styles.Sobre} id="Sobre" data-aos="fade-up">
+          <div className={styles.Sobre__image}></div>
+          <div className={styles.Sobre__text}>
             <h2>Sobre</h2>
             <p>
               Sou Ana, psicóloga formada pela USP e especialista em Terapia
