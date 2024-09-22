@@ -1,95 +1,63 @@
-import Image from "next/image";
+"use client";
 import styles from "./page.module.css";
+import Carrossel from "./components/Carrosel";
+import Ajuda from "./components/Ajuda";
+import Explicacao from "./components/Explicacao";
+import Aos from "aos";
+import { useEffect } from "react";
+import "aos/dist/aos.css"; 
 
 export default function Home() {
+  useEffect(() => {
+    Aos.init({
+      duration: 2000, 
+      once: true, 
+    });
+  }, []); 
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      <div className={styles.Home}>
+        <div className={styles.Home__agenda} data-aos="fade-right">
+          <h2>Agende agora sua consulta!</h2>
+          <p>O melhor para sua saúde mental</p>
+          <button>Agendar</button>
+        </div>
+        <div className={styles.Home__image}></div>
+      </div>
+
+      <div className={styles.Sobre} data-aos="fade-up" id="Sobre">
+        <div className={styles.Sobre__image} data-aos="fade-up"></div>
+        <div className={styles.Sobre__text} data-aos="fade-up">
+          <h2>Sobre</h2>
+          <p>
+            Sou Ana, psicóloga formada pela USP e especialista em Terapia
+            Cognitivo-Comportamental. Com anos de experiência ajudando pessoas a
+            superarem desafios emocionais e comportamentais, acredito que cada
+            indivíduo é único e merece uma abordagem personalizada.
+          </p>
+          <p>
+            Minha missão é oferecer um espaço seguro e acolhedor, onde você
+            possa explorar suas emoções, entender melhor a si mesmo e encontrar
+            caminhos para uma vida mais equilibrada e satisfatória. Atendo
+            adolescentes, adultos e casais, sempre buscando promover o
+            autoconhecimento e o bem-estar emocional.
+          </p>
+          <p>
+            Estou aqui para te apoiar em sua jornada de crescimento pessoal e
+            autodescoberta. Juntos, podemos trabalhar para construir uma vida
+            mais saudável, feliz e plena.
+          </p>
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      <Ajuda />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+      <Carrossel />
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <Explicacao />
     </main>
   );
 }
