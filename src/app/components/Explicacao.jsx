@@ -1,3 +1,4 @@
+"use client";
 import styles from "../page.module.css";
 import relationship from "../assets/relationship.png";
 import knowledge from "../assets/autoconhecimento.png";
