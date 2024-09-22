@@ -1,23 +1,19 @@
 "use client";
+import { useEffect } from "react";
+
 import styles from "./page.module.css";
 import Carrossel from "./components/Carrosel";
 import Ajuda from "./components/Ajuda";
 import Explicacao from "./components/Explicacao";
 import Aos from "aos";
-import { useEffect } from "react";
 import "aos/dist/aos.css"; 
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 
-export default function Home() {
-  useEffect(() => {
-    Aos.init({
-      duration: 2000, 
-      once: true, 
-    });
-  }, []); 
+export default function FullPage() {
+
 
   return (
     <>
@@ -29,7 +25,7 @@ export default function Home() {
             <p>O melhor para sua saúde mental</p>
             <button>Agendar</button>
           </div>
-          <div className={styles.Home__image}></div>
+          <div className={styles.Home__image} data-aos="fade-up"></div>
         </div>
         <div className={styles.Sobre} data-aos="fade-up" id="Sobre">
           <div className={styles.Sobre__image} data-aos="fade-up"></div>

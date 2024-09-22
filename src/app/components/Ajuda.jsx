@@ -1,6 +1,6 @@
+"use client";
 import styles from "../page.module.css";
 import Image from "next/image";
-import Aos from "aos"; 
 
 import anxiety from "../assets/help/anxiety.png";
 import depression from "../assets/help/depression.png";
@@ -8,16 +8,10 @@ import relationship from "../assets/help/relation.png";
 import mentalhealth from "../assets/help/cerebral.png";
 import personality from "../assets/help/personalidade.png";
 
-import { useEffect } from "react";
 
 export default function Ajuda() {
 
-    useEffect(() => {
-        Aos.init({
-            duration: 2000,
-            once: true
-        });
-    }, []);
+    
 
     const servicos = [
         {

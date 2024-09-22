@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "../page.module.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -7,12 +7,6 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 
 export default function Footer() {
-  useEffect(() => {
-    Aos.init({
-      duration: 2000, 
-      once: true 
-    });
-  }, []);
 
   const [position, setPosition] = useState([-21.2922, -50.3428]);
 
