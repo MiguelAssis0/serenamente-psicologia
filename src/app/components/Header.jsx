@@ -7,8 +7,17 @@ import logo from "../assets/logo.png";
 import whatsapp from "../assets/whatsapp.png";
 import phone from "../assets/phone.png";
 
+import { useEffect } from "react";
 
 export default function Header() {
+
+    useEffect(() => {
+        Aos.init({
+            duration: 2000, 
+            once: true, 
+        });
+    }, []);
+
     return (
         <div className={styles.header__container}>
             <div className={styles.header__contact}>

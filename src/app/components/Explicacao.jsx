@@ -7,8 +7,17 @@ import emotions from "../assets/emotions.png";
 import Image from "next/image";
 
 import Aos from "aos";
+import { useEffect } from "react";
 
 export default function Explicacao() {
+
+  useEffect(() => {
+    Aos.init({
+      duration: 2000, 
+      once: true 
+    });
+  }, []);
+
   const motivos = [
     {
       id: 1,
